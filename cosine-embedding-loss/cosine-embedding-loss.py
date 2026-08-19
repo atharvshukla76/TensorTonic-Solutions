@@ -14,7 +14,7 @@ def cosine_embedding_loss(x1, x2, label, margin):
 
     cosine_similarity = dot_product / (x1_norm * x2_norm + 1e-8)
 
-    # Calculate loss
+    
     if label == 1:
         loss = 1 - cosine_similarity
 
