@@ -11,6 +11,8 @@ def focal_loss(p, y, gamma=2.0):
     
     eps = 1e-7
     p = np.clip(p, eps, 1-eps)
-    p_t = y*p + (1-y)*(1-p)
-    fl = -(1-p_t) ** gamma *np.log(p_t)
+    
+    fl = (
+        -y*(1-p)**gamma*np.log(p) - p**gamma*(1-y) * np.log(1-p)
+    )
     return float(np.mean(fl))
